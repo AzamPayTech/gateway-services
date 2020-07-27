@@ -1,0 +1,34 @@
+{
+  "title": "TokenModelRequest",
+  "type": "object",
+  "properties": {
+    "VendorCode": {
+      "type": "string",
+      "example": "AirtelTransactionPushu",
+      "description": "This is vendor specific partner specific provided on registration can be change from admin panel"
+    },
+    "PartnerCode": {
+      "type": "string",
+      "description": "This is vendor specific provided on registration can be change from admin panel",
+      "example": "SARAFU"
+    },
+    "IsSuccess": {
+      "type": "boolean",
+      "description": "Can be set to true or false to mock the result of success and failure",
+      "example": "true"
+    }
+  },
+  "required": [
+    "VendorCode",
+    "PartnerCode",
+    "IsSuccess"
+  ],
+  "x-examples": {
+    "TokenRequest": {
+      "VendorCode": "string",
+      "PartnerCode": "string",
+      "IsSuccess": true
+    }
+  },
+  "description": "This model provides the defination for API request body"
+}

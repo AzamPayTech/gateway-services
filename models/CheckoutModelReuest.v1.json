@@ -1,0 +1,44 @@
+{
+  "title": "CheckoutModel",
+  "type": "object",
+  "x-examples": {
+    "Request sample": {
+      "SenderMsisdn": "786670479",
+      "ReferenceMsisdn": "FRC56305A0",
+      "Amount": "1000"
+    }
+  },
+  "description": "This model show request body that should be passed while sending a payment via checkout API. ",
+  "properties": {
+    "SenderMsisdn": {
+      "type": "string",
+      "example": "786670479",
+      "minLength": 9,
+      "maxLength": 15,
+      "description": "This is the benificary number where user will get payment popup to enter the PIN"
+    },
+    "ReferenceMsisdn": {
+      "type": "string",
+      "example": "FRC56305A0",
+      "minLength": 9,
+      "maxLength": 100,
+      "description": "This is refernce number which can be used for reconciliation "
+    },
+    "Amount": {
+      "type": "string",
+      "example": "1000",
+      "minLength": 3,
+      "maxLength": 11,
+      "description": "Here you need to enter the amount that sender should get debited with"
+    },
+    "IsSuccess": {
+      "type": "boolean",
+      "description": "This is optional fields will only work on sandbox to mock the request and response in case of fail or success"
+    }
+  },
+  "required": [
+    "SenderMsisdn",
+    "ReferenceMsisdn",
+    "Amount"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "title": "TokenModelResponse",
+  "type": "object",
+  "x-examples": {
+    "TokenRequest": {
+      "success": true,
+      "responseCode": 200,
+      "message": "Token successfully generated",
+      "data": {
+        "Authorization": "2020-07-09T19:51:58.142Z"
+      }
+    }
+  },
+  "description": "This is response model for token API",
+  "properties": {
+    "message": {
+      "type": "string",
+      "example": "AirtelTransactionPushu",
+      "description": "This is response message"
+    },
+    "responseCode": {
+      "type": "string",
+      "description": "this will be under the range of 200 in case of success and will be in range of 400-500 in case of failure",
+      "example": "SARAFU"
+    },
+    "success": {
+      "type": "boolean",
+      "description": "Can be set to true or false to mock the result of success and failure",
+      "example": "true"
+    },
+    "data": {
+      "type": "object",
+      "required": [
+        "Authorization"
+      ],
+      "properties": {
+        "Authorization": {
+          "type": "string",
+          "description": "Authorization header that can be sent for every request on checkout "
+        }
+      }
+    }
+  },
+  "required": [
+    "message",
+    "responseCode",
+    "success",
+    "data"
+  ]
+}
