@@ -13,7 +13,7 @@ Azampay gateaway service provide secure,easy service to integrate API-driven sol
 # API Swagger details
 
 **The API swagger for sandbox can be reffered from**
-[http://3.120.144.2:3000](url)
+[http://3.120.144.2:3000]
 
 
 # Request response
