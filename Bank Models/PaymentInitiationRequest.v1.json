@@ -1,0 +1,48 @@
+{
+  "title": "PaymentInitiation",
+  "type": "object",
+  "description": "This is the request which is called for initiating the payment from payment gateway",
+  "properties": {
+    "MobileNumber": {
+      "type": "string",
+      "description": "User mobile number registred with bank"
+    },
+    "AccountNumber": {
+      "type": "string",
+      "description": "User account number that needs to be validated for payment"
+    },
+    "MerchantRefID": {
+      "type": "string",
+      "description": "Any Unique number required for reconcillation"
+    },
+    "Amount": {
+      "type": "string",
+      "description": "Amount to recharge"
+    },
+    "RefernceNumber": {
+      "type": "string",
+      "description": "Refernce Number for this user and to callback"
+    },
+    "IsSuccess": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "MobileNumber",
+    "AccountNumber",
+    "MerchantRefID",
+    "Amount",
+    "RefernceNumber",
+    "IsSuccess"
+  ],
+  "x-examples": {
+    "PaymentRequest": {
+      "MobileNumber": "+25590801212",
+      "AccountNumber": "213e34343543",
+      "MerchantRefID": "ATHRV",
+      "Amount": "1000",
+      "RefernceNumber": "HFMXJ*&(*",
+      "IsSuccess": true
+    }
+  }
+}

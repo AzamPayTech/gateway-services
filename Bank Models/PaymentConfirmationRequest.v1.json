@@ -1,0 +1,46 @@
+{
+  "title": "PaymentConfirmation",
+  "type": "object",
+  "description": "This model describes the request that is initiated after OTP is recived for payment confirmation. ",
+  "x-examples": {
+    "Payment Confirmation Request": {
+      "OTP": "123456",
+      "ReferenceID": "DFDS799D",
+      "MobileNumber": "SHAREDEARLIER// +255908916224",
+      "CustomerAccountNumber": "67867892347823",
+      "IsSuccess": true
+    }
+  },
+  "properties": {
+    "OTP": {
+      "type": "string",
+      "example": "123445"
+    },
+    "ReferenceID": {
+      "type": "string",
+      "example": "FADS6876DH"
+    },
+    "MobileNumber": {
+      "type": "string",
+      "example": "255710100045",
+      "description": "This is required in internation format"
+    },
+    "CustomerAccountNumber": {
+      "type": "string",
+      "description": "Account number as per on bank book"
+    },
+    "IsSuccess": {
+      "type": [
+        "string",
+        "boolean"
+      ]
+    }
+  },
+  "required": [
+    "OTP",
+    "ReferenceID",
+    "MobileNumber",
+    "CustomerAccountNumber",
+    "IsSuccess"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "title": "PaymentConfirmationPositiveResponse",
+  "type": "object",
+  "description": "This model describes the positive response for payment confirmation.",
+  "x-examples": {
+    "PaymetConfirmation": {
+      "success": true,
+      "responseCode": 200,
+      "message": "Payment successfully completed",
+      "data": {
+        "operator": "NMB",
+        "reference": "2020-07-09T19:34:00.585Z",
+        "mobileNumber": "2020-07-09T19:34:00.585Z",
+        "amount": "1000",
+        "transid": "2020-07-09T19:34:00.585Z",
+        "accountNumber": "2020-07-09T19:34:00.585Z"
+      }
+    }
+  },
+  "properties": {
+    "success": {
+      "type": "boolean",
+      "description": "This will be true in case of successfull payment confirmation."
+    },
+    "responseCode": {
+      "type": "number",
+      "description": "Depending on status of success level response code vary from 200 to 205",
+      "example": 200
+    },
+    "message": {
+      "type": "string",
+      "description": "This will show the reason of success. ",
+      "example": "This is a successfull transaction"
+    },
+    "data": {
+      "type": "object",
+      "description": "Data will have a property of RefrenceId",
+      "required": [
+        "operator",
+        "reference",
+        "mobileNumber",
+        "amount",
+        "transid",
+        "accountNumber"
+      ],
+      "properties": {
+        "operator": {
+          "type": "string",
+          "example": "NMB",
+          "description": "This will return the operator Like TIGO/Airtel which ever operator we pay via."
+        },
+        "reference": {
+          "type": "string",
+          "description": "Initial Reference send on initiating the payment",
+          "example": "FCVD67VB"
+        },
+        "mobileNumber": {
+          "type": "string",
+          "example": "CDCNJD&",
+          "description": "A new Reference send on confirmation API unique to this payment"
+        },
+        "amount": {
+          "type": "string",
+          "example": "1000",
+          "description": "Amount paid for this transaction"
+        },
+        "transid": {
+          "type": "string",
+          "example": "CDC&HHD",
+          "description": "transactional refrence id"
+        },
+        "accountNumber": {
+          "type": "string",
+          "example": "9089162245",
+          "description": "mobile numbe which paid the amount"
+        }
+      }
+    }
+  },
+  "required": [
+    "success",
+    "responseCode",
+    "message",
+    "data"
+  ]
+}

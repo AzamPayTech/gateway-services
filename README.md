@@ -1,7 +1,6 @@
 # Azam-pay-gateway-services
 
-Azampay gateaway service solution is a secured and easy way to handel payments on your business. This is quick and easy to implement API based payment solution.
-
+Azampay gateaway service provide secure,easy service to integrate API-driven solutions that aims to get your paymments program up and running as soon as possible.
 
 
 <div align="center">
@@ -11,12 +10,16 @@ Azampay gateaway service solution is a secured and easy way to handel payments o
 
 
 
-
+# API Swagger details
 
 **The API swagger for sandbox can be reffered from**
 [http://3.120.144.2:3000](url)
 
-**Request Response models can be reffered from the models folder**
 
+# Request response
+**Request Response for each API can be referred from Bank and MNO(Mobile network operator) models**
+
+
+# Documentation & Explanation
 
 **Indivisual API explanation can be found on the docs**

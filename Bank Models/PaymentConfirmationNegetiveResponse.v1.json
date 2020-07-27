@@ -1,0 +1,39 @@
+{
+  "title": "PaymentConfirmationNegetiveResponse",
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean",
+      "description": "This will be false in case if the Payment confirmation UI fails."
+    },
+    "responseCode": {
+      "type": "number",
+      "description": "Depending on status of failure level response code vary from 400 to 504",
+      "example": 500
+    },
+    "message": {
+      "type": "string",
+      "example": "Failed to carry the transaction. ",
+      "description": "This will show the reason of failure. "
+    },
+    "data": {
+      "type": "object",
+      "description": "Data will be empty in case of failure"
+    }
+  },
+  "required": [
+    "success",
+    "responseCode",
+    "message",
+    "data"
+  ],
+  "description": "This model describes the failure scenario for payment confirmation.",
+  "x-examples": {
+    "PaymnetConfirmationFailure": {
+      "success": false,
+      "responseCode": 500,
+      "message": "Internal server error",
+      "data": {}
+    }
+  }
+}

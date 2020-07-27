@@ -1,6 +1,15 @@
 {
   "title": "CheckoutModelNegativeResponse",
   "type": "object",
+  "description": "This model describes the failure scenario for checkout UI.",
+  "x-examples": {
+    "CheckoutFailure": {
+      "success": false,
+      "responseCode": 500,
+      "message": "Internal server error",
+      "data": {}
+    }
+  },
   "properties": {
     "success": {
       "type": "boolean",
@@ -26,14 +35,5 @@
     "responseCode",
     "message",
     "data"
-  ],
-  "description": "This model describes the failure scenario for checkout UI.",
-  "x-examples": {
-    "CheckoutFailure": {
-      "success": false,
-      "responseCode": 500,
-      "message": "Internal server error",
-      "data": {}
-    }
-  }
+  ]
 }

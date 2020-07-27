@@ -1,0 +1,49 @@
+{
+  "title": "PaymentInitiationPositiveRequest",
+  "type": "object",
+  "description": "This is positive case response ",
+  "properties": {
+    "success": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "data": {
+      "type": [
+        "string",
+        "object"
+      ],
+      "required": [
+        "ExternalReferenceID",
+        "RefernceID"
+      ],
+      "properties": {
+        "ExternalReferenceID": {
+          "type": "string",
+          "description": "This is refernce ID for payment partner"
+        },
+        "RefernceID": {
+          "type": "string",
+          "description": "This is refernce ID for payment "
+        }
+      }
+    }
+  },
+  "required": [
+    "success",
+    "message",
+    "data"
+  ],
+  "x-examples": {
+    "PositivePaumentInitiation": {
+      "success": true,
+      "responseCode": 200,
+      "message": "This is a successfull transaction",
+      "data": {
+        "ReferenceID": "2020-07-09T19:33:17.953Z",
+        "ExternalReferenceID": "SARADSJBD969697"
+      }
+    }
+  }
+}
