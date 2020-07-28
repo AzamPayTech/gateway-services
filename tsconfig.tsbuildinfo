@@ -1881,8 +1881,13 @@
         "signature": "968a6fdb0c75ff874cc69b88a30a9c18fd7efe8b56ffdaa07598088fd4e6c747",
         "affectsGlobalScope": false
       },
+      "./src/common/callrequest.ts": {
+        "version": "327bf4969df050129cf5f1423b4cf454187bc02c557c61c9bddd32cdc1622108",
+        "signature": "f3b91b8ba19ab4e6cd359687c8f10f8190e1c4131699c5670041411b239a30d2",
+        "affectsGlobalScope": false
+      },
       "./src/controllers/azam.controller.ts": {
-        "version": "b5f878915758fb54d2e90933c07fb4de5f87d8607d4825fa350ca314464a3a1a",
+        "version": "264e85187acea41943577b13c1ae2791b587281156aa374aad2059ca98cccc91",
         "signature": "de6598e666e2959c158b063dc5046d7a5511cc772448ad49db8a7bf60f034ae6",
         "affectsGlobalScope": false
       },
@@ -4446,6 +4451,10 @@
         "./node_modules/@types/node/util.d.ts",
         "./src/sequence.ts"
       ],
+      "./src/common/callrequest.ts": [
+        "./node_modules/@types/node/ts3.2/util.d.ts",
+        "./node_modules/@types/node/util.d.ts"
+      ],
       "./src/controllers/azam.controller.ts": [
         "./node_modules/@loopback/context/dist/index.d.ts",
         "./node_modules/@loopback/rest/dist/index.d.ts",
@@ -4453,7 +4462,8 @@
         "./node_modules/@types/node/util.d.ts",
         "./src/api-specs/checkout/index.ts",
         "./src/api-specs/confirm-payment/index.ts",
-        "./src/api-specs/token/index.ts"
+        "./src/api-specs/token/index.ts",
+        "./src/common/callrequest.ts"
       ],
       "./src/controllers/index.ts": [
         "./node_modules/@types/node/ts3.2/util.d.ts",
@@ -7304,6 +7314,7 @@
       "./src/api-specs/token/components.ts",
       "./src/api-specs/token/index.ts",
       "./src/application.ts",
+      "./src/common/callrequest.ts",
       "./src/controllers/azam.controller.ts",
       "./src/controllers/index.ts",
       "./src/controllers/ping.controller.ts",
