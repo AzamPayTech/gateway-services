@@ -3,6 +3,7 @@ import { api, Request, RestBindings } from '@loopback/rest';
 import { checkoutApiDef } from '../api-specs/checkout';
 import { tokenDef } from '../api-specs/token';
 import { confirmPayDef } from '../api-specs/confirm-payment';
+import callRequest from '../common/CallRequest';
 
 @api(checkoutApiDef)
 export class CheckoutController {
@@ -29,6 +30,18 @@ export class CheckoutController {
         message: 'Internal server error',
         data: {}
       };
+      // TODO::
+      // Check if all required fields exist then give success confimr route response otherwise just fail it. 
+      const options = {
+        url: 'https://VIRTUAL_pay.com',
+        body,
+        json: true,
+        method: 'POST',
+        rejectUnauthorized: false,
+      }
+      setTimeout(async () => {
+        await callRequest(options)
+      }, 2000);
     return response;
   }
 }
