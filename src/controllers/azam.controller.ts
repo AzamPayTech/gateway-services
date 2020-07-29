@@ -7,13 +7,14 @@ import callRequest from '../common/CallRequest';
 
 @api(checkoutApiDef)
 export class CheckoutController {
-  constructor () { }
+  constructor() { }
 
   async checkoutComponentFunction(
     @inject(RestBindings.Http.REQUEST)
     request: Request
   ): Promise<any> {
     const { body }: any = request;
+    const refId = new Date()
     let response: any = {};
     body?.IsSuccess ?
       response = {
@@ -21,7 +22,7 @@ export class CheckoutController {
         responseCode: 200,
         message: 'This is a successfull transaction',
         data: {
-          ReferenceID: new Date()
+          ReferenceID: refId
         }
       } :
       response = {
@@ -35,43 +36,27 @@ export class CheckoutController {
     const options: any = {
       url: 'https://uat.evirtualpay.com:8443/confirmPayment/Pay',
       body: {
-        transactionstatus: body?.TransactionStatus,
-        message: body?.Message,
-        operator: body?.Operator,
-        reference: body?.ReferenceID,
-        utilityref: body?.UtilityReference,
-        amount: body?.Amount,
-        transid: body?.TansactionID,
-        msisdn: body?.Msisdn
       },
       json: true,
       method: 'POST',
       rejectUnauthorized: false,
     };
-    if (body.TransactionStatus) {
-      options.body.TransactionStatus = body.TransactionStatus;
-    }
-    if (body.Message) {
-      options.body.Message = body.Message;
-    }
-    if (body.Operator) {
-      options.body.Operator = body.Operator;
-    }
-    if (body.ReferenceID) {
-      options.body.ReferenceID = body.ReferenceID;
-    }
-    if (body.UtilityReference) {
-      options.body.UtilityReference = body.UtilityReference;
-    }
+    options.body.TransactionStatus = 'Success';
+    options.body.Message = 'This transaction is successful';
+    options.body.Operator = 'Tigo';
+    options.body.ReferenceID = refId;
+    options.body.UtilityReference = body.ReferenceMsisdn;
+    options.body.TansactionID = new Date().toISOString;
     if (body.Amount) {
       options.body.Amount = body.Amount;
     }
-    if (body.TansactionID) {
-      options.body.TansactionID = body.TansactionID;
-    }
     if (body.Msisdn) {
       options.body.Msisdn = body.Msisd;
-    } else {
+    }
+    if (body.ReferenceMsisdn) {
+      options.body.UtilityReference = body.ReferenceMsisdn;
+    }
+     else {
       response = {
         success: false,
         responseCode: 400,
@@ -88,7 +73,7 @@ export class CheckoutController {
 
 @api(tokenDef)
 export class TokenController {
-  constructor () { }
+  constructor() { }
 
   async tokenComponentFunction(
     @inject(RestBindings.Http.REQUEST)
@@ -118,7 +103,7 @@ export class TokenController {
 
 @api(confirmPayDef)
 export class ConfirmPaymentController {
-  constructor () { }
+  constructor() { }
 
   async paymentComponentFunction(
     @inject(RestBindings.Http.REQUEST)
