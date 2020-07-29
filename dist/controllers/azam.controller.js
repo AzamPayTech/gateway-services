@@ -7,6 +7,7 @@ const rest_1 = require("@loopback/rest");
 const checkout_1 = require("../api-specs/checkout");
 const token_1 = require("../api-specs/token");
 const confirm_payment_1 = require("../api-specs/confirm-payment");
+const CallRequest_1 = tslib_1.__importDefault(require("../common/CallRequest"));
 let CheckoutController = class CheckoutController {
     constructor() { }
     async checkoutComponentFunction(request) {
@@ -27,6 +28,59 @@ let CheckoutController = class CheckoutController {
                 message: 'Internal server error',
                 data: {}
             };
+        // TODO::
+        // Check if all required fields exist then give success confirm route response otherwise just fail it. 
+        const options = {
+            url: 'https://uat.evirtualpay.com:8443/confirmPayment/Pay',
+            body: {
+                transactionstatus: body === null || body === void 0 ? void 0 : body.TransactionStatus,
+                message: body === null || body === void 0 ? void 0 : body.Message,
+                operator: body === null || body === void 0 ? void 0 : body.Operator,
+                reference: body === null || body === void 0 ? void 0 : body.ReferenceID,
+                utilityref: body === null || body === void 0 ? void 0 : body.UtilityReference,
+                amount: body === null || body === void 0 ? void 0 : body.Amount,
+                transid: body === null || body === void 0 ? void 0 : body.TansactionID,
+                msisdn: body === null || body === void 0 ? void 0 : body.Msisdn
+            },
+            json: true,
+            method: 'POST',
+            rejectUnauthorized: false,
+        };
+        if (body.TransactionStatus) {
+            options.body.TransactionStatus = body.TransactionStatus;
+        }
+        if (body.Message) {
+            options.body.Message = body.Message;
+        }
+        if (body.Operator) {
+            options.body.Operator = body.Operator;
+        }
+        if (body.ReferenceID) {
+            options.body.ReferenceID = body.ReferenceID;
+        }
+        if (body.UtilityReference) {
+            options.body.UtilityReference = body.UtilityReference;
+        }
+        if (body.Amount) {
+            options.body.Amount = body.Amount;
+        }
+        if (body.TansactionID) {
+            options.body.TansactionID = body.TansactionID;
+        }
+        if (body.Msisdn) {
+            options.body.Msisdn = body.Msisd;
+        }
+        else {
+            response = {
+                success: false,
+                responseCode: 400,
+                message: 'Bad request',
+                data: {}
+            };
+        }
+        setTimeout(async () => {
+            await CallRequest_1.default(options);
+        }, 2000);
         return response;
     }
 };

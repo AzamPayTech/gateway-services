@@ -30,18 +30,58 @@ export class CheckoutController {
         message: 'Internal server error',
         data: {}
       };
-      // TODO::
-      // Check if all required fields exist then give success confimr route response otherwise just fail it. 
-      const options = {
-        url: 'https://VIRTUAL_pay.com',
-        body,
-        json: true,
-        method: 'POST',
-        rejectUnauthorized: false,
-      }
-      setTimeout(async () => {
-        await callRequest(options)
-      }, 2000);
+    // TODO::
+    // Check if all required fields exist then give success confirm route response otherwise just fail it. 
+    const options: any = {
+      url: 'https://uat.evirtualpay.com:8443/confirmPayment/Pay',
+      body: {
+        transactionstatus: body?.TransactionStatus,
+        message: body?.Message,
+        operator: body?.Operator,
+        reference: body?.ReferenceID,
+        utilityref: body?.UtilityReference,
+        amount: body?.Amount,
+        transid: body?.TansactionID,
+        msisdn: body?.Msisdn
+      },
+      json: true,
+      method: 'POST',
+      rejectUnauthorized: false,
+    };
+    if (body.TransactionStatus) {
+      options.body.TransactionStatus = body.TransactionStatus;
+    }
+    if (body.Message) {
+      options.body.Message = body.Message;
+    }
+    if (body.Operator) {
+      options.body.Operator = body.Operator;
+    }
+    if (body.ReferenceID) {
+      options.body.ReferenceID = body.ReferenceID;
+    }
+    if (body.UtilityReference) {
+      options.body.UtilityReference = body.UtilityReference;
+    }
+    if (body.Amount) {
+      options.body.Amount = body.Amount;
+    }
+    if (body.TansactionID) {
+      options.body.TansactionID = body.TansactionID;
+    }
+    if (body.Msisdn) {
+      options.body.Msisdn = body.Msisd;
+    } else {
+      response = {
+        success: false,
+        responseCode: 400,
+        message: 'Bad request',
+        data: {}
+      };
+    }
+    setTimeout(async () => {
+      await callRequest(options);
+    }, 2000);
     return response;
   }
 }
