@@ -13,13 +13,6 @@ export const azamCheckout: any = {
               'ReferenceMsisdn': { 'type': 'string' },
               'Amount': { 'type': 'string' },
               'IsSuccess': { 'type': 'boolean' },
-              'TransactionStatus': { 'type': 'string' },
-              'Message': { 'type': 'string' },
-              'Operator': { 'type': 'string' },
-              'ReferenceID': { 'type': 'string' },
-              'UtilityReference': { 'type': 'string' },
-              'TansactionID': { 'type': 'string' },
-              'Msisdn': { 'type': 'string' },
             },
           },
         }
