@@ -1,6 +1,6 @@
 # Azam-pay-gateway-services
 
-Azampay gateaway service provide secure,easy service to integrate API-driven solutions that aims to get your paymments program up and running as soon as possible.
+Azampay gateway service provides secure, easy service to integrate API-driven solutions that aim to get your payments program up and running as soon as possible.
 
 
 <div align="center">
